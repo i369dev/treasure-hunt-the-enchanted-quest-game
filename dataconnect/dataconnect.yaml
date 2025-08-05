@@ -1,0 +1,22 @@
+connectors:
+  default:
+    database:
+      postgres:
+        connection_info:
+          database_name: postgres
+          instance: treasure-hunt-the-enchanted-quest-game-fdc
+models:
+  Treasure:
+    collection: treasures
+    fields:
+      id:
+        type: String
+        primary_key: true
+      name: String
+      location: String
+      riddle: String
+queries:
+  getAllTreasures:
+    source:
+      collection: treasures
+    returns: Treasure[]

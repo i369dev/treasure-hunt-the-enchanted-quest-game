@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Hunt: The Enchanted Quest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel Decorative', cursive;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        /* Leaflet custom styles */
+        .leaflet-container {
+            background: #192631; /* Match dark map background */
+            font-family: 'Lato', sans-serif;
+        }
+        .player-marker-icon, .user-live-marker-icon {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(4px);
+            color: #fde047;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+            border: 1px solid rgba(253, 224, 71, 0.3);
+        }
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 3px #fde047);
+            }
+            50% {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 8px #fde047);
+            }
+        }
+        .player-svg-animate {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+
+        /* Live Map Marker Animation */
+        @keyframes pulse-glow-marker {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 4px rgba(255, 255, 255, 0.5), 0 2px 5px rgba(0,0,0,0.5);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 2px 5px rgba(0,0,0,0.5);
+            }
+        }
+
+        /* Custom Leaflet Zoom Controls */
+        .leaflet-control-zoom {
+            border: none !important;
+            margin-left: 20px !important;
+            margin-bottom: 20px !important;
+        }
+        .leaflet-control-zoom-in, .leaflet-control-zoom-out {
+            width: 40px !important;
+            height: 40px !important;
+            line-height: 40px !important;
+            background-color: rgba(0, 0, 0, 0.6) !important;
+            border-radius: 50% !important;
+            color: #fde047 !important; /* yellow-300 */
+            font-size: 24px !important;
+            font-weight: bold !important;
+            text-align: center !important;
+            border: 1px solid rgba(253, 224, 71, 0.4) !important;
+            transition: background-color 0.2s;
+        }
+        .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover {
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            color: #fef08a !important; /* yellow-200 */
+        }
+        .leaflet-control-zoom-in {
+            margin-bottom: 8px !important;
+        }
+        .leaflet-control-zoom-out {
+            border-radius: 50% !important;
+        }
+        .leaflet-bar a, .leaflet-bar a:hover {
+             border-bottom: none !important;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^18.2.0",
+    "react/": "https://esm.sh/react@^18.2.0/",
+    "react-dom": "https://esm.sh/react-dom@^18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@^18.2.0/",
+    "leaflet": "https://esm.sh/leaflet@1.9.4",
+    "react-leaflet": "https://esm.sh/react-leaflet@4.2.1",
+    "@google/genai": "https://esm.sh/@google/genai",
+    "firebase/app": "https://esm.sh/firebase/app",
+    "firebase/auth": "https://esm.sh/firebase/auth",
+    "firebase/firestore": "https://esm.sh/firebase/firestore",
+    "firebase/": "https://esm.sh/firebase@^12.0.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

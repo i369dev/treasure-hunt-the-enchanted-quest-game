@@ -1,0 +1,25 @@
+{
+  "name": "treasure-hunt-the-enchanted-quest-game",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@google/genai": "latest",
+    "firebase": "^12.0.0",
+    "leaflet": "1.9.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "eslint": "^9.32.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
